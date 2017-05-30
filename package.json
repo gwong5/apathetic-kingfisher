@@ -1,0 +1,22 @@
+{
+  "name": "apathetic-kingfisher",
+  "version": "0.0.010",
+  "main": "app.js",
+  "repository": "https://github.com/kousagi1012/apathetic-kingfisher.git",
+  "author": "Greg <kousagi1012@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pg-promise": "^5.8.1",
+    "postgresql": "^0.0.1",
+    "pug": "^2.0.0-rc.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  }
+}
