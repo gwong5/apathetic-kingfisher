@@ -29,7 +29,7 @@ CREATE TABLE playlist (
 );
 
 CREATE TEMPORARY TABLE artist (VALUES TEXT);
-COPY artist FROM 'absolute_path';
+COPY artist FROM '/absolute_path_on_your_machine';
 INSERT INTO artists ("id", "name", "genre")
 SELECT (CAST (VALUES->>'id' AS INTEGER)) AS id,
 VALUES->>'name' AS name,
@@ -37,7 +37,7 @@ VALUES->>'genre' AS genre
 FROM (SELECT json_array_elements(replace(values,'\','\\')::json) AS VALUES FROM artist) a;
 
 CREATE TEMPORARY TABLE song (VALUES TEXT);
-COPY song FROM 'absolute_path';
+COPY song FROM '/absolute_path_on_your_machine';
 INSERT INTO songs ("id", "title", "album_id", "length", "track_no") 
 SELECT (CAST (VALUES->>'id' AS INTEGER)) AS id,
 VALUES->>'title' AS title,
@@ -47,7 +47,7 @@ VALUES->>'title' AS title,
 FROM (SELECT json_array_elements(replace(values,'\','\\')::json) AS VALUES FROM song) a;
 
 CREATE TEMPORARY TABLE album (VALUES TEXT);
-COPY album FROM 'absolute_path';
+COPY album FROM '/absolute_path_on_your_machine';
 INSERT INTO albums ("id", "artist_id", "title", "year")
 SELECT (CAST (VALUES->>'id' AS INTEGER)) AS id,
 (CAST (VALUES->>'artist_id' AS INTEGER)) AS artist_id,
