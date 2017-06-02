@@ -14,7 +14,7 @@ router.get('/api/getSidebar', (request, response) => {
 router.get('/api/getSongsOfArtist/:name', (request, response) => {
   const { name } = request.params
   records.getSongsOfArtist(name)
-  .then(artistInfo => { console.log(artistInfo) })
+  .then(artistInfo => { response.json(artistInfo) })
 })
 
 router.get('/api/getAlbum/:title', (request, response) => {

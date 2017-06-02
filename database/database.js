@@ -22,7 +22,7 @@ records.getSongsOfAlbum = (album_title) => db.any('SELECT * FROM songs WHERE alb
 // Artist Specific GET requests
 records.getArtistById = (id) => db.one('SELECT * FROM artists WHERE id = $1', [id])
 records.getArtistByName = (name) => db.any('SELECT * FROM artists WHERE name ~* $1', [name])
-records.getSongsOfArtist = (name) => db.any('SELECT songs.id, songs.track_no, songs.title, songs.length, songs.album_id, albums.id, artists.name, artists.genre, artists.id FROM artists INNER JOIN albums ON albums.artist_id = artists.id INNER JOIN songs ON songs.album_id = albums.id WHERE artists.name ~* $1 GROUP BY songs.id, songs.track_no, songs.title, songs.length, songs.album_id, albums.id, artists.name, artists.genre, artists.id;', [name])
+records.getSongsOfArtist = (name) => db.any('SELECT songs.id, songs.track_no, songs.title, songs.length, songs.album_id, albums.id, albums.title AS album_title, artists.name, artists.genre, artists.id FROM artists INNER JOIN albums ON albums.artist_id = artists.id INNER JOIN songs ON songs.album_id = albums.id WHERE artists.name ~* $1 GROUP BY songs.id, songs.track_no, songs.title, songs.length, songs.album_id, albums.id, artists.name, artists.genre, artists.id;', [name])
 
 // INSERT requests
 records.addNewArtist = (name, genre) => db.none('INSERT INTO artists (name, genre) VALUES ($1, $2)', [name, genre])

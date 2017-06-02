@@ -26,10 +26,24 @@ $(document).ready(() => {
       dataType: 'json',
       success: (json) => {
         $('.songStage').empty()
-        $('.songStage').append($(`<h2>${name}</h2>`))
+        $('.songStage').append($(`
+        <span>
+          <h2>${name}</h2>
+        </span>
+        <span>
+          <div class=artistAlbums><h3>Albums</h3></div>
+        </span>
+        `))
         $.each(json, (jsonIndex, artist) => {
           console.log(artist)
-          // $('.songStage').append($(`<div>${artist.name}</div>`))
+          if (!$(`.albumId${artist.album_id}`).length) {
+            $('.artistAlbums').append($(`
+              <ol id=albumId${artist.album_id}>${artist.album_title} ${artist.year}</ol>`)
+            )
+          }
+          $(`#albumId${artist.album_id}`).append($(`
+            <li class=song>${artist.title}</li>
+          `))
         })
       }
     })
