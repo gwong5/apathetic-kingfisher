@@ -1,0 +1,73 @@
+span {
+  cursor: default;
+}
+
+h2 {
+  font-family: Courier New, Courier, monospace;
+  border-bottom: 3px solid rosybrown;
+}
+
+html {
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+}
+
+.active {
+  background-color: paleturquoise;
+}
+
+.sidebar {
+  border-right: 3px solid peru;
+  height: 100%;
+  user-select: none;
+  overflow: scroll;
+  position: absolute;
+  width: 20%;
+}
+
+.artist, .album {
+  color: firebrick;
+  cursor: default;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+  border-bottom: 1px solid rosybrown;
+  padding: 5px;
+}
+
+.newAlbum, .newArtist {
+  color: mediumaquamarine;
+  cursor: default;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+  padding: 5px;
+}
+
+.songStage {
+  border: 3px solid slategrey;
+  height: 300px;
+  margin-left: auto;
+  margin-right: 12%;
+  overflow: scroll;
+  padding: 20px;
+  width: 50%;
+}
+.playList {
+  border: 3px solid black;
+  height: 250px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: 18%;
+  width: 40%;
+}
+.musicPlayer {
+  position: absolute;
+  right: 27%;
+  bottom: 10%;
+}
+
+.nowPlaying {
+  position: absolute;
+  right: 42%;
+  bottom: 6%;
+}

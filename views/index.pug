@@ -1,3 +1,9 @@
 include header
 body
-  p blah
+  include sidebar
+  .songStage
+  include playlist
+  .musicPlayer
+    audio.musicPlayer(controls)
+  span.nowPlaying Now Playing:
+    span.song
