@@ -1,7 +1,9 @@
 include header
 body
-  p blah
-  for song in songs
-    div= song.track_no
-    div= song.title
-    div= song.album_id
+  include sidebar
+  .songStage
+  include playlist
+  .musicPlayer
+    audio.musicPlayer(controls)
+  span.nowPlaying Now Playing:
+    span.song
